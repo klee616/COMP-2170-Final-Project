@@ -27,8 +27,6 @@ const init = () => {
     dragBoxPerpare();
 }
 
-
-
 const dragstartEvent = (event) => {
     console.log(event);
     obj = event.target;
@@ -45,8 +43,6 @@ const dropEvent = (event) => {
         updateTaskStatus(obj.dataset.taskId, event.dataset.stageId)
     }
 }
-
-
 
 window.addEventListener("load", (event) => {
     init();
@@ -94,7 +90,6 @@ const dragBoxPerpare = () => {
 }
 
 const dataPerpare = () => {
-
     taskList.push(new Task(1, "Task 1", "This is a task 1.", "2024-05-12", editCard, removeCard, dragstartEvent, 0));
     taskList.push(new Task(2, "Task 2", "This is a task 2.", "2024-05-13", editCard, removeCard, dragstartEvent, 1));
     taskList.push(new Task(3, "Task 3", "This is a task 3.", "2024-05-14", editCard, removeCard, dragstartEvent, 2));
@@ -106,11 +101,6 @@ const dataPerpare = () => {
         targetElement.appendChild(element);
 
     });
-}
-
-
-const updateTask = () => {
-
 }
 
 const updateTaskStatus = (taskId, stageId) => {
@@ -139,8 +129,6 @@ const editCard = (id) => {
     formDescription.value = task.description;
     formDueDate.value = task.dueDate;
     overlayer.setAttribute('style', 'display:flex;');
-
-
 }
 const removeCard = (id) => {
     const isConfirm = confirm("Are you confirm deleted this record?");
@@ -152,12 +140,10 @@ const removeCard = (id) => {
     taskList.splice(index, 1);
     console.log(taskList);
     element.remove();
-
 }
 
 const submitForm = (event) => {
     event.preventDefault();
-
     if (formTaskId.value == null || formTaskId.value == '') {
         console.log(formTaskId.value);
         //new Taskid
@@ -194,7 +180,6 @@ const submitForm = (event) => {
 const closeOverlayer = (event) => {
     event.preventDefault();
     overlayer.setAttribute('style', 'display:none;');
-
 }
 
 const nextId = () => {
@@ -211,7 +196,6 @@ const clearFormData = () => {
     formDescription.value = "";
     formDueDate.value = "";
 }
-
 
 addTaskBtn.addEventListener('click', submitForm);
 closeBtn.addEventListener('click', closeOverlayer);
